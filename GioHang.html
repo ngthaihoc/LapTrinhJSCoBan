@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoc Nguyen - Giỏ Hàng</title>
+    <link rel="stylesheet" href="test.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      /* === Nội dung giỏ hàng === */
+      .cart-content {
+        background: linear-gradient(135deg, #1c2b44, #2a3b5e);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+      }
+
+      /* Tiêu đề giỏ hàng */
+      .cart-content h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #00c8ff;
+      }
+
+      /* Bảng giỏ hàng */
+      .cart-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      .cart-content th,
+      .cart-content td {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+      }
+
+      .cart-content th {
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        font-weight: bold;
+        color: white;
+        font-size: 16px;
+      }
+
+      .cart-content td {
+        font-size: 14px;
+      }
+
+      /* Hình ảnh sản phẩm */
+      .cart-content td img {
+        width: 60px;
+        border-radius: 5px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .cart-content td img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Lựa chọn giao hàng */
+      .shipping-options {
+        margin-top: 20px;
+        text-align: left;
+        font-size: 16px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+      }
+
+      .shipping-options h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #ffcc00;
+      }
+
+      .shipping-options label {
+        display: block;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+
+      .shipping-options input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      .shipping-options i {
+        margin-right: 5px;
+        color: #00c8ff;
+      }
+
+      /* Thông tin giao hàng */
+      .shipping-info {
+        margin-top: 20px;
+        text-align: left;
+        font-size: 16px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+      }
+
+      .shipping-info h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #ffcc00;
+      }
+
+      .shipping-info input,
+      .shipping-info textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        background: #fff;
+        color: #333;
+      }
+
+      .shipping-info textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .shipping-info label {
+        display: block;
+        margin: 5px 0;
+        color: #ddd;
+      }
+
+      /* Tổng tiền */
+      .cart-total {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      .cart-total p {
+        margin: 5px 0;
+      }
+
+      .cart-total b {
+        color: #ffcc00;
+      }
+
+      .cart-total i {
+        margin-right: 5px;
+        color: #00c8ff;
+      }
+
+      /* Nút thanh toán */
+      .cart-checkout {
+        display: block;
+        background: linear-gradient(90deg, #ff9800, #e68a00);
+        color: white;
+        font-size: 18px;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+      }
+
+      .cart-checkout:hover {
+        transform: scale(1.05);
+        background: linear-gradient(90deg, #e68a00, #ff9800);
+      }
+
+      .cart-checkout i {
+        margin-right: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .cart-content {
+          width: 90%;
+          padding: 15px;
+        }
+        .cart-content table th,
+        .cart-content td {
+          padding: 8px;
+          font-size: 12px;
+        }
+        .cart-content td img {
+          width: 40px;
+        }
+        .shipping-options,
+        .shipping-info {
+          font-size: 14px;
+        }
+        .cart-total {
+          font-size: 16px;
+        }
+        .cart-checkout {
+          font-size: 16px;
+          padding: 10px;
+        }
+      }
+
+      #home-delivery:checked ~ .home-delivery-total {
+        display: block;
+      }
+
+      #home-delivery:checked ~ .store-pickup-total {
+        display: none;
+      }
+
+      #store-pickup:checked ~ .home-delivery-total {
+        display: none;
+      }
+
+      #store-pickup:checked ~ .store-pickup-total {
+        display: block;
+      }
+
+      #store-pickup:checked ~ .shipping-info {
+        display: none;
+      }
+
+      #home-delivery:checked ~ .shipping-info {
+        display: block;
+      }
+    </style>
+
+  </head>
+  <body>
+    <!-- Navbar (Giữ nguyên từ index.html) -->
+    <nav class="navbar">
+      <a
+        class="logo-container"
+        href="index.html"
+        data-tooltip="Owned by Nguyen Thai Hoc"
+      >
+        <img src="images/logo new.png" alt="Logo" />
+      </a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">Sản phẩm ▼</a>
+          <ul class="dropdown-menu">
+            <li
+              ><a href="#"><i class="fa-solid fa-laptop"></i> Máy tính</a></li
+            >
+            <li
+              ><a href="#"
+                ><i class="fa-solid fa-mobile"></i> Điện thoại Android</a
+              ></li
+            >
+            <li
+              ><a href="#"
+                ><i class="fa-brands fa-apple"></i> Điện thoại IOS</a
+              ></li
+            >
+            <li
+              ><a href="#"
+                ><i class="fa-solid fa-microchip"></i> Linh kiện</a
+              ></li
+            >
+            <li
+              ><a href="#"><i class="fa-solid fa-code"></i> Phần mềm</a></li
+            >
+          </ul>
+        </li>
+        <li
+          ><a href="GioHang.html" id="cartBtn"
+            >GIỎ HÀNG <i class="fa-solid fa-cart-shopping"></i></a
+        ></li>
+        <li><a href="#">VỀ CHÚNG TÔI</a></li>
+        <li
+          >LIÊN HỆ VỚI CHÚNG TÔI TẠI =>
+          <a href="https://discord.gg/SgPGwsVD"
+            ><i class="fa-brands fa-discord"></i> Discord</a
+          ></li
+        >
+      </ul>
+      <div class="search-bar">
+        <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+        <button type="submit">🔍</button>
+      </div>
+      <div class="nav-buttons">
+        <a href="#loginModal" class="btn login">Đăng Nhập</a>
+        <a href="#registerModal" class="btn register">Đăng Ký</a>
+      </div>
+    </nav>
+
+    <!-- Nội dung Giỏ Hàng -->
+    <div class="cart-content" style="margin: 40px auto; max-width: 800px">
+      <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
+      <table>
+        <thead>
+          <tr>
+            <th><i class="fa-solid fa-image"></i> Hình Ảnh</th>
+            <th><i class="fa-solid fa-tag"></i> Sản Phẩm</th>
+            <th><i class="fa-solid fa-list-ol"></i> Số Lượng</th>
+            <th><i class="fa-solid fa-money-bill"></i> Giá Gốc</th>
+            <th><i class="fa-solid fa-percent"></i> Giảm Giá</th>
+            <th><i class="fa-solid fa-coins"></i> Thành Tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              ><img
+                src="images/Dien thoai/ss_s25-removebg-preview.png"
+                alt="Samsung S25 Ultra"
+            /></td>
+            <td>Samsung S25 Ultra</td>
+            <td>1</td>
+            <td>32.000.000 VND</td>
+            <td>-20% (6.400.000 VND)</td>
+            <td>25.600.000 VND</td>
+          </tr>
+          <tr>
+            <td
+              ><img
+                src="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png"
+                alt="iPhone 16"
+            /></td>
+            <td>iPhone 16</td>
+            <td>2</td>
+            <td>46.000.000 VND</td>
+            <td>-10% (4.600.000 VND)</td>
+            <td>82.800.000 VND</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Phương thức giao hàng -->
+      <div class="shipping-options">
+        <h3><i class="fa-solid fa-truck"></i> Phương thức giao hàng:</h3>
+        <input
+          type="radio"
+          name="shipping"
+          id="home-delivery"
+          value="20000"
+          checked
+        />
+        <label for="home-delivery"
+          ><i class="fa-solid fa-truck-fast"></i> Giao tận nhà (+20.000
+          VND)</label
+        ><br />
+        <input type="radio" name="shipping" id="store-pickup" value="0" />
+        <label for="store-pickup"
+          ><i class="fa-solid fa-store"></i> Nhận tại cửa hàng (Miễn phí)</label
+        >
+      </div>
+
+      <!-- Form thông tin giao hàng -->
+      <div class="shipping-info" style="display: block">
+        <h3><i class="fa-solid fa-address-card"></i> Thông tin nhận hàng:</h3>
+        <label for="full-name">Họ và tên:</label>
+        <input
+          type="text"
+          id="full-name"
+          placeholder="Nhập họ và tên của bạn"
+          required
+        />
+
+        <label for="phone">Số điện thoại:</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Nhập số điện thoại"
+          required
+        />
+
+        <label for="address">Địa chỉ giao hàng:</label>
+        <input
+          type="text"
+          id="address"
+          placeholder="Nhập địa chỉ cụ thể"
+          required
+        />
+
+        <label for="notes">Ghi chú (tùy chọn):</label>
+        <textarea
+          id="notes"
+          placeholder="Ví dụ: Giao ngoài giờ hành chính"
+        ></textarea>
+      </div>
+
+      <!-- Nút thanh toán -->
+      <a class="cart-checkout" onclick="return validate(event)"
+        ><i class="fa-solid fa-credit-card"></i> Thanh Toán Ngay</a
+      >
+
+      <!-- Tổng tiền cho Giao tận nhà -->
+      <div class="cart-total home-delivery-total" style="display: block">
+        <p
+          ><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> 108.400.000
+          VND</p
+        >
+        <p
+          ><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b>
+          20.000 VND</p
+        >
+        <p
+          ><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> 108.420.000
+          VND</p
+        >
+      </div>
+
+      <!-- Tổng tiền cho Nhận tại cửa hàng -->
+      <div class="cart-total store-pickup-total" style="display: none">
+        <p
+          ><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> 108.400.000
+          VND</p
+        >
+        <p
+          ><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b> 0
+          VND</p
+        >
+        <p
+          ><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> 108.400.000
+          VND</p
+        >
+      </div>
+
+    </div>
+
+    <!-- Footer (Giữ nguyên từ index.html) -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>HocNguyen Shop</h3>
+          <p>Social</p>
+          <div>
+            <a href="https://discord.gg/SgPGwsVD"
+              ><i class="fab fa-discord"></i
+            ></a>
+            <a href="https://www.facebook.com/ngthaihoc.vn/"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="https://leetcode.com/u/thaihocng/"
+              ><i class="fas fa-code"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Wallet</h3>
+          <ul>
+            <li><a href="#">Ngân Hàng</a></li>
+            <li><a href="#">Ví điện tử</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Đặt trước thiết bị</a></li>
+            <li><a href="#">Mua thiết bị cũ</a></li>
+            <li><a href="#">Sửa chữa thiết bị</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>History</h3>
+          <ul>
+            <li><a href="#">Lịch sử thanh toán</a></li>
+            <li><a href="#">Lịch sử đơn hàng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p
+          >Copyright © 2025 HocNguyen UI | Written by
+          <a href="https://www.facebook.com/ngthaihoc.vn/">ThaiHoc</a>.</p
+        >
+      </div>
+    </footer>
+    <script src="gioihang.js"></script>
+  </body>
+</html>

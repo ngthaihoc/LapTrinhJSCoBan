@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoc Nguyen - Thanh Toán Thành Công</title>
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* === Nội dung trang thanh toán thành công === */
+        .success-content {
+            background: linear-gradient(135deg, #1c2b44, #2a3b5e);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .success-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #00c8ff;
+        }
+
+        .success-content p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .success-content i {
+            font-size: 50px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        /* Nút quay lại */
+        .back-to-home {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff9800, #e68a00);
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        .back-to-home:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #e68a00, #ff9800);
+        }
+
+        .back-to-home i {
+            margin-right: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .success-content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .success-content h2 {
+                font-size: 24px;
+            }
+
+            .success-content p {
+                font-size: 16px;
+            }
+
+            .back-to-home {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Giữ nguyên từ Checkout.html) -->
+    <nav class="navbar">
+        <a class="logo-container" href="index.html" data-tooltip="Owned by Nguyen Thai Hoc">
+            <img src="images/logo new.png" alt="Logo">
+        </a>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa-solid fa-laptop"></i> Máy tính</a></li>
+                    <li><a href="#"><i class="fa-solid fa-mobile"></i> Điện thoại Android</a></li>
+                    <li><a href="#"><i class="fa-brands fa-apple"></i> Điện thoại IOS</a></li>
+                    <li><a href="#"><i class="fa-solid fa-microchip"></i> Linh kiện</a></li>
+                    <li><a href="#"><i class="fa-solid fa-code"></i> Phần mềm</a></li>
+                </ul>
+            </li>
+            <li><a href="GioHang.html" id="cartBtn">GIỎ HÀNG <i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="#">VỀ CHÚNG TÔI</a></li>
+            <li>LIÊN HỆ VỚI CHÚNG TÔI TẠI => <a href="https://discord.gg/SgPGwsVD"><i class="fa-brands fa-discord"></i> Discord</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="submit">🔍</button>
+        </div>
+        <div class="nav-buttons">
+            <a href="#loginModal" class="btn login">Đăng Nhập</a>
+            <a href="#registerModal" class="btn register">Đăng Ký</a>
+        </div>
+    </nav>
+
+    <!-- Nội dung thông báo thành công -->
+    <div class="success-content">
+        <i class="fa-solid fa-check-circle"></i>
+        <h2>Thanh Toán Thành Công!</h2>
+        <p>Cảm ơn bạn đã mua sắm tại HocNguyen Shop.</p>
+        <p>Đơn hàng của bạn sẽ được xử lý trong thời gian sớm nhất.</p>
+        <a href="index.html" class="back-to-home"><i class="fa-solid fa-home"></i> Quay Lại Trang Chủ</a>
+    </div>
+
+    <!-- Footer (Giữ nguyên từ Checkout.html) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>HocNguyen Shop</h3>
+                <p>Social</p>
+                <div>
+                    <a href="https://discord.gg/SgPGwsVD"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.facebook.com/ngthaihoc.vn/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://leetcode.com/u/thaihocng/"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Wallet</h3>
+                <ul>
+                    <li><a href="#">Ngân Hàng</a></li>
+                    <li><a href="#">Ví điện tử</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Đặt trước thiết bị</a></li>
+                    <li><a href="#">Mua thiết bị cũ</a></li>
+                    <li><a href="#">Sửa chữa thiết bị</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>History</h3>
+                <ul>
+                    <li><a href="#">Lịch sử thanh toán</a></li>
+                    <li><a href="#">Lịch sử đơn hàng</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HocNguyen UI | Written by <a href="https://www.facebook.com/ngthaihoc.vn/">ThaiHoc</a>.</p>
+        </div>
+    </footer>
+</body>
+</html>
