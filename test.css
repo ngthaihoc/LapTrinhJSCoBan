@@ -801,3 +801,68 @@ footer {
     font-size: 15px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        width: 95%;
+    }
+    
+    .nav-links, .nav-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+
+    .banner h1 {
+        font-size: 28px;
+    }
+    
+    .banner p {
+        font-size: 18px;
+    }
+    
+ 
+    .product-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .footer-column {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .logo-container img {
+        height: 30px;
+    }
+    
+    .stat-box h2 {
+        font-size: 28px;
+    }
+    
+    .stat-box p {
+        font-size: 20px;
+    }
+    
+
+    .dropdown-menu {
+        min-width: 180px;
+    }
+}
