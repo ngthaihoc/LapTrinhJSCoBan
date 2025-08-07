@@ -1,6 +1,9 @@
 // Bật tắt icon
 function toggleIcon(btn) {
     btn.classList.toggle("active");
+  
+   
+
 
     if (btn.classList.contains("heart")) {
         alert(
@@ -23,12 +26,15 @@ function toggleIcon(btn) {
 const idk1 = document.getElementById("idk1");
 const idk2 = document.getElementById("idk2");
 const idk3 = document.getElementById("idk3");
+const idk4 = document.getElementById("idk4");
+const idk5 = document.getElementById("idk5");
+const idk6 = document.getElementById("idk6");
 
 const popup = document.getElementsByClassName("icon-container");
 
 idk1.addEventListener("mouseover", () => {
     popup[0].style.opacity = "1";
-    popup[0].style.backgroundColor = "#727272";
+    popup[0].style.backgroundColor = "#72727240";
     popup[0].style.borderRadius = "5px";
     popup[0].style.padding = "5px";
     popup[0].style.pointerEvents = "auto";
@@ -41,7 +47,7 @@ idk1.addEventListener("mouseout", () => {
 
 idk2.addEventListener("mouseover", () => {
     popup[1].style.opacity = "1";
-    popup[1].style.backgroundColor = "#727272";
+    popup[1].style.backgroundColor = "#72727240";
     popup[1].style.borderRadius = "5px";
     popup[1].style.padding = "5px";
     popup[1].style.pointerEvents = "auto";
@@ -54,7 +60,7 @@ idk2.addEventListener("mouseout", () => {
 
 idk3.addEventListener("mouseover", () => {
     popup[2].style.opacity = "1";
-    popup[2].style.backgroundColor = "#727272";
+    popup[2].style.backgroundColor = "#72727240";
     popup[2].style.borderRadius = "5px";
     popup[2].style.padding = "5px";
     popup[2].style.pointerEvents = "auto";
@@ -67,7 +73,7 @@ idk3.addEventListener("mouseout", () => {
 
 idk4.addEventListener("mouseover", () => {
     popup[3].style.opacity = "1";
-    popup[3].style.backgroundColor = "#727272";
+    popup[3].style.backgroundColor = "#72727240";
     popup[3].style.borderRadius = "5px";
     popup[3].style.padding = "5px";
     popup[3].style.pointerEvents = "auto";
@@ -76,6 +82,32 @@ idk4.addEventListener("mouseover", () => {
 idk4.addEventListener("mouseout", () => {
     popup[3].style.opacity = "0";
     popup[3].style.pointerEvents = "none";
+});
+
+idk5.addEventListener("mouseover", () => {
+    popup[4].style.opacity = "1";
+    popup[4].style.backgroundColor = "#72727240";
+    popup[4].style.borderRadius = "5px";
+    popup[4].style.padding = "5px";
+    popup[4].style.pointerEvents = "auto";
+});
+
+idk5.addEventListener("mouseout", () => {
+    popup[4].style.opacity = "0";
+    popup[4].style.pointerEvents = "none";
+});
+
+idk6.addEventListener("mouseover", () => {
+    popup[5].style.opacity = "1";
+    popup[5].style.backgroundColor = "#72727240";
+    popup[5].style.borderRadius = "5px";
+    popup[5].style.padding = "5px";
+    popup[5].style.pointerEvents = "auto";
+});
+
+idk6.addEventListener("mouseout", () => {
+    popup[5].style.opacity = "0";
+    popup[5].style.pointerEvents = "none";
 });
 
 // Validate đăng ký
@@ -206,16 +238,16 @@ const video = document.getElementById("videoPlayer");
 
 const vidSource = [
     "video/all.mp4",
-    "video/Xiaomi.mp4",
     "video/vivo.mp4",
+    "video/Xiaomi.mp4",
     "video/Oppo.mp4",
     "video/ss s25 new.mp4",
     "video/invin.mp4",
 ];
 
+video.play();
 let currentIndex = 0;
 video.src = vidSource[currentIndex];
-video.play();
 video.muted = false;
 video.play();
 
