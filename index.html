@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WellyShop</title>
     <link rel="stylesheet" href="test.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="logoContainer">
-            <img src="https://source.unsplash.com/100x100/?logo" alt="Logo">
+            <img src="images/WELLY.png" alt="Logo">
         </div>
         <ul class="navLinks">
             <li class="dropdown">
@@ -44,7 +47,7 @@
 
     <div id="loginModal" class="modal">
         <div class="modalContent">
-            <a href="#" class="closeBtn">×</a>
+            <a href="#" class="closeBtn" id="loginA">×</a>
             <h2>Đăng Nhập | Welly</h2>
             <form>
                 <input type="text" id="loginUsername" placeholder="Tên người dùng">
@@ -57,7 +60,7 @@
 
     <div id="registerModal" class="modal">
         <div class="modalContent">
-            <a href="#" class="closeBtn">×</a>
+            <a href="#" class="closeBtn" id="registerA">×</a>
             <h2>Đăng Ký | Welly</h2>
             <form>
                 <input type="text" id="registerUsername" placeholder="Tên người dùng">
@@ -74,6 +77,12 @@
         <h1>WellyShop 🌊</h1>
         <p>Điện thoại, Laptop, Máy tính bàn, Linh kiện,...</p>
         <video id="videoPlayer" autoplay muted loop></video>
+        <div class="video-controls">
+            <button id="firstVideo">First</button>
+            <button id="prevVideo">Prev</button>
+            <button id="nextVideo">Next</button>
+            <button id="lastVideo">Last</button>
+        </div>
     </section>
 
     <section class="stats">
@@ -101,116 +110,184 @@
         <div class="productContainer">
             <div class="productCard">
                 <span class="discountTag">-20%</span>
-                <div class="productPopup" id="productPopup1">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
-                </div>
+
+
                 <img src="images/dien-thoai-samsung-galaxy-s25-ut.png" alt="Samsung S25 Ultra">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
+
+                <div class="productPopup" id="productPopup1">
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <h3>Samsung S25 Ultra</h3>
                 <p class="price">29.900.000 VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
+                    <a href="#" class="buyNow" id="buy1" name="Samsung S25 Ultra" price="29.900.000 VND"
+                        img="images/dien-thoai-samsung-galaxy-s25-ut.png">
+                        Buy now →
+                    </a>
                 </div>
             </div>
+
             <div class="productCard">
                 <span class="discountTag">-10%</span>
                 <div class="productPopup" id="productPopup2">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <img src="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png" alt="iPhone 16">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
-                </div>
+
                 <h3>iPhone 16</h3>
                 <p class="price">41.400.000 VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
+                    <a href="#" class="buyNow" id="buy2" name="iPhone 16" price="41.400.000 VND"
+                        img="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png">
+                        Buy now →
+                    </a>
                 </div>
             </div>
             <div class="productCard">
                 <span class="discountTag">-15%</span>
                 <div class="productPopup" id="productPopup3">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <img src="images/Vivo x200.png" alt="Vivo X200">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
-                </div>
+
                 <h3>Vivo X200 Pro</h3>
                 <p class="price">23.800.000 VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
+                    <a href="#" class="buyNow" id="buy3" name="Vivo X200 Pro" price="23.800.000 VND"
+                        img="images/Vivo x200.png">
+                        Buy now →
+                    </a>
                 </div>
             </div>
             <div class="productCard">
                 <span class="discountTag">-20%</span>
                 <div class="productPopup" id="productPopup4">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <img src="images/Xiaomi 15u.png" alt="Xiaomi 15 Ultra">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
-                </div>
+
                 <h3>Xiaomi 15 Ultra</h3>
                 <p class="price">24.000.000 VND</p>
-                <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
-                </div>
+               
+<div class="buttonGroup">
+    <a href="#" class="buyNow" 
+       id="buy4" 
+       name="Xiaomi 15 Ultra" 
+       price="24.000.000 VND" 
+       img="images/Xiaomi 15u.png">
+       Buy now →
+    </a>
+</div>
+              
             </div>
             <div class="productCard">
                 <span class="discountTag">-20%</span>
                 <div class="productPopup" id="productPopup5">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <img src="images/oppo find x8.jpg" alt="OPPO Find X8">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
-                </div>
+
                 <h3>OPPO Find X8</h3>
                 <p class="price">12.000.000 VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
+                    <a href="#" class="buyNow" id="buy5" name="OPPO Find X8" price="12.00.000 VND"
+                        img="images/oppo find x8.jpg">
+                        Buy now →
+                    </a>
                 </div>
             </div>
             <div class="productCard">
                 <span class="discountTag">-20%</span>
                 <div class="productPopup" id="productPopup6">
-                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
-                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
-                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
-                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
+                    <div class="iconContainer">
+                        <button class="iconBtn heart" onclick="toggleIcon(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="iconBtn like" onclick="toggleIcon(this)">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button class="iconBtn open" onclick="toggleIcon(this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
                 </div>
                 <img src="images/huawei-pura-80-ultra-vang.jpg" alt="Huawei Pura 80 Ultra">
-                <div class="iconContainer">
-                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
-                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
-                </div>
+
                 <h3>Huawei Pura 80 Ultra</h3>
                 <p class="price">36.000.000 VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow">Buy now →</a>
+                    <a href="#" class="buyNow" id="buy6" name="Huawei Pura 80 Ultra" price="36.00.000 VND"
+                        img="images/huawei-pura-80-ultra-vang.jpg">
+                        Buy now →
+                    </a>
                 </div>
             </div>
         </div>
@@ -256,4 +333,5 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>

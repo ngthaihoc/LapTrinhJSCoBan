@@ -239,10 +239,16 @@ html {
 }
 
 #registerModal {
-    display: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #loginModal {
-    display: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
 }
 
 .modal {
@@ -253,19 +259,20 @@ html {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-.modal:target {
-    display: flex;
-}
 
 .modalContent {
     background: linear-gradient(90deg, #1c2b44, #2a3b5e);
     padding: 20px;
     border-radius: 15px;
     width: 400px;
+    max-width: 90%;
     text-align: center;
     color: white;
     position: relative;
@@ -798,61 +805,47 @@ footer {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-        width: 95%;
-    }
 
-    .navLinks,
-    .navButtons {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .banner h1 {
-        font-size: 28px;
-    }
-
-    .banner p {
-        font-size: 18px;
-    }
-
-    .productCard {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .modalContent {
-        width: 90%;
-    }
-
-    .footerColumn {
-        min-width: 100%;
-        margin-bottom: 20px;
-    }
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-@media (max-width: 480px) {
-    .btn {
-        padding: 8px 15px;
-        font-size: 12px;
-    }
+.video-controls button {
+    padding: 8px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    .logoContainer img {
-        height: 30px;
-    }
+.video-controls button:hover {
+    background: #0056b3;
+}
 
-    .statBox h2 {
-        font-size: 28px;
-    }
+.iconContainer {
+    opacity: 0;
+    background-color: #9c9797;
+    padding: 5px;
+    border-radius: 5px;
+}
 
-    .statBox p {
-        font-size: 20px;
-    }
+.btn.heart.active {
+    color: #ff0015;
+}
 
-    .dropdownMenu {
-        min-width: 180px;
-    }
+.btn.like.active {
+    color: #0080ff;
+}
+
+.btn.open.active {
+    color: #2ed573;
+}
+
+.btn.cart.active {
+    color: #ffa600;
 }

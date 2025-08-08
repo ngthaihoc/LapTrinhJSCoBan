@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    const selectProdcut = localStorage.getItem('prodcutIn4')
+
+    if (selectProdcut){
+        const product = JSON.parse(selectProdcut)
+        const table = document.getElementById('cart-table').getElementsByTagName('tbody')[0]
+        const newRow = table.insertRow();
+        newRow.className= 'cart-item'
+        newRow.innerHTML = `
+        <td><img src="${product.img}"
+        class="product-image"/></td>
+        <td class="product-name">${product.name}</td>
+        <td class="product-quantity">${product.amount}</td>
+        <td class="product-price">${product.price}</td>
+        <td class="product-discount">-20% (6.400.000 VND)</td>
+        <td class="product-total">${product.price}</td>`
+    }
+
     const checkoutBtn = document.getElementById('checkout-btn');
     const shippingForm = document.getElementById('shipping-info-form');
     const addressGroup = document.getElementById('address-group');
@@ -90,3 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
  
     updateShippingMethod();
 });
+
+
+
