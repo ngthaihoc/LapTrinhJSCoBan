@@ -1,75 +1,92 @@
-function validate(event) {
-  event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
 
-  const name = document.getElementById("full-name").value.trim();
-  const phone = document.getElementById("phone");
-  const address = document.getElementById("address").value.trim();
-  const notes = document.getElementById("notes").value.trim();
-  const isHomeDelivery = document.getElementById("home-delivery").checked;
-  const notHomeDelivery = document.getElementById("store-pickup").checked;
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const shippingForm = document.getElementById('shipping-info-form');
+    const addressGroup = document.getElementById('address-group');
+    const homeDeliveryRadio = document.getElementById('home-delivery');
+    const storePickupRadio = document.getElementById('store-pickup');
+    const homeDeliveryTotal = document.getElementById('home-delivery-total');
+    const storePickupTotal = document.getElementById('store-pickup-total');
 
-  if (isHomeDelivery) {
-    if (name == "" || phone == "" || address == "") {
-      alert("Vui lòng điền đầy đủ thông tin.");
-      return false;
-    }
-    const nameregx = /^[a-zA-ZÀ-ỹ\s]+$/;
-    if (!nameregx.test(name)) {
-      alert("Tên không hợp lệ. Vui lòng nhập lại.");
-      name = "";
-      return false;
-    }
-    const phoneregx = /^(0[0-9]{9,10})$/;
-    if (!phoneregx.test(phone.value.trim())) {
-      alert("Số điện thoại không hợp lệ. Vui lòng nhập lại.");
-      phone.value = "";
-      return false;
-    }
-    if (address.length < 10 || address.length > 100) {
-      alert("Địa chỉ không hợp lệ. Vui lòng nhập lại.");
-      address = "";
-      return false;
-    }
-    if (notes.length > 200) {
-      alert("Ghi chú không được quá 200 ký tự.");
-      notes.value = "";
-      return false;
-    }
-  }
-  if (notHomeDelivery) {
-    if (name == "" || phone == "") {
-      alert("Vui lòng điền đầy đủ thông tin.");
-      return false;
-    }
-    const nameregx = /^[a-zA-ZÀ-ỹ\s]+$/;
-    if (!nameregx.test(name)) {
-      alert("Tên không hợp lệ. Vui lòng nhập lại.");
-      name = "";
-      return false;
-    }
-    const phoneregx = /^(0[0-9]{9,10})$/;
-    if (!phoneregx.test(phone.value.trim())) {
-      alert("Số điện thoại không hợp lệ. Vui lòng nhập lại.");
-      phone.value = "";
-      return false;
-    }
-    if (address.length != 0) {
-      alert("Địa chỉ không cần nhập nếu bạn nhận tại cửa hàng.");
-      address.value = "";
-      return false;
-    }
-    if (notes.length > 200) {
-      alert("Ghi chú không được quá 200 ký tự.");
-      notes.value = "";
-      return false;
-    }
-  }
+    homeDeliveryRadio.addEventListener('change', updateShippingMethod);
+    storePickupRadio.addEventListener('change', updateShippingMethod);
+    
 
-  alert("Cảm ơn bạn đã đặt hàng.");
-  document.getElementById("full-name").value = "";
-  document.getElementById("phone").value = "";
-  document.getElementById("address").value = "";
-  document.getElementById("notes").value = "";
-  window.location.href = "Checkout.html";
-  return true;
-}
+    checkoutBtn.addEventListener('click', validate);
+    
+
+    function updateShippingMethod() {
+        if (homeDeliveryRadio.checked) {
+            addressGroup.style.display = 'block';
+            homeDeliveryTotal.style.display = 'block';
+            storePickupTotal.style.display = 'none';
+        } else {
+            addressGroup.style.display = 'none';
+            homeDeliveryTotal.style.display = 'none';
+            storePickupTotal.style.display = 'block';
+        } 
+    }
+    
+
+    function validate(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('full-name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const notes = document.getElementById('notes').value.trim();
+        const isHomeDelivery = homeDeliveryRadio.checked;
+        
+  
+        if (!name) {
+            alert('Vui lòng nhập họ và tên');
+            return;
+        }
+        
+        if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(name)) {
+            alert('Tên không hợp lệ. Vui lòng nhập lại.');
+            return;
+        }
+        
+        if (!phone) {
+            alert('Vui lòng nhập số điện thoại');
+            return;
+        }
+        
+        if (!/^(0[0-9]{9,10})$/.test(phone)) {
+            alert('Số điện thoại không hợp lệ. Vui lòng nhập lại.');
+            return;
+        }
+        
+
+        if (isHomeDelivery) {
+            if (!address) {
+                alert('Vui lòng nhập địa chỉ giao hàng');
+                return;
+            }
+            
+            if (address.length < 10 || address.length > 100) {
+                alert('Địa chỉ phải từ 10 đến 100 ký tự');
+                return;
+            }
+        } else {
+            if (address) {
+                alert('Địa chỉ không cần nhập nếu bạn nhận tại cửa hàng');
+                return;
+            }
+        }
+        
+        if (notes.length > 200) {
+            alert('Ghi chú không được quá 200 ký tự');
+            return;
+        }
+        
+
+        alert('Cảm ơn bạn đã đặt hàng.');
+        shippingForm.reset();
+        window.location.href = 'Checkout.html';
+    }
+    
+ 
+    updateShippingMethod();
+});

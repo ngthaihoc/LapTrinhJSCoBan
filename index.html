@@ -1,443 +1,239 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WellyShop</title>
-
-    <!-- Liên kết CSS -->
-    <link rel="stylesheet" href="testKhiKiểmThử.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="icon" type="image/png" href="images/sea (1).png" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <title>WellyShop</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-
-<body>  
-    <!-- ================= PHẦN 1: THANH ĐIỀU HƯỚNG (NAVBAR) ================= -->
+<body>
     <nav class="navbar">
-        <!-- Logo cửa hàng -->
-        <a class="logo-container" href="#" data-tooltip="Owned by Nguyen Thai Hoc">
-            <img src="images/logo new.png" alt="Logo HocNguyenShop" />
-        </a>
-
-        <!-- Menu điều hướng chính -->
-        <ul class="nav-links">
+        <div class="logoContainer">
+            <img src="https://source.unsplash.com/100x100/?logo" alt="Logo">
+        </div>
+        <ul class="navLinks">
             <li class="dropdown">
                 <a href="#">Sản phẩm ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa-solid fa-laptop"></i> Máy tính</a></li>
-                    <li><a href="#"><i class="fa-solid fa-mobile"></i> Điện thoại Android</a></li>
-                    <li><a href="#"><i class="fa-brands fa-apple"></i> Điện thoại IOS</a></li>
-                    <li><a href="#"><i class="fa-solid fa-microchip"></i> Linh kiện</a></li>
-                    <li><a href="#"><i class="fa-solid fa-code"></i> Phần mềm</a></li>
+                <ul class="dropdownMenu">
+                    <li><a href="#"><i class="fas fa-laptop"></i> Máy tính</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Điện thoại Android</a></li>
+                    <li><a href="#"><i class="fab fa-apple"></i> Điện thoại IOS</a></li>
+                    <li><a href="#"><i class="fas fa-microchip"></i> Linh kiện</a></li>
+                    <li><a href="#"><i class="fas fa-code"></i> Phần mềm</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="GioHang.html" id="cartBtn">
-                    GIỎ HÀNG <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-            </li>
-            <li><a href="#">VỀ CHÚNG TÔI</a></li>
-            <li>
-                <h5 style="color: rgb(6, 6, 82);"> LIÊN HỆ TẠI ▼ </h5>
-                <a href="https://www.facebook.com/ngthaihhoc">
-                    <i class="fa-brands fa-facebook"></i> Facebook
-                </a>
+            <li><a href="#cartSection">GIỎ HÀNG</a></li>
+            <li><a href="#aboutSection">VỀ CHÚNG TÔI</a></li>
+            <li class="dropdown">
+                <a href="#">LIÊN HỆ TẠI ▼</a>
+                <ul class="dropdownMenu">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
             </li>
         </ul>
-
-        <!-- Ô tìm kiếm sản phẩm -->
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm..." />
-            <button type="submit">🔍</button>
+        <div class="searchBar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button><i class="fas fa-search"></i></button>
         </div>
-
-        <!-- Nút đăng nhập & đăng ký -->
-        <div class="nav-buttons">
-            <a href="#loginModal" id="openLogin" class="btn login">Đăng Nhập</a>
-            <a href="#registerModal" id="openRegister" class="btn register">Đăng Ký</a>
+        <div class="navButtons">
+            <a href="#loginModal" class="btn login">Đăng Nhập</a>
+            <a href="#registerModal" class="btn register">Đăng Ký</a>
         </div>
     </nav>
 
-    <!-- ================= PHẦN 2: MODAL ĐĂNG NHẬP/ĐĂNG KÝ ================= -->
-    <!-- Modal Đăng Nhập -->
     <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close">×</a>
-            <h2>Đăng Nhập | Welly </h2>
+        <div class="modalContent">
+            <a href="#" class="closeBtn">×</a>
+            <h2>Đăng Nhập | Welly</h2>
             <form>
-                <label for="loginUsername">Tên người dùng</label>
-                <input type="text" id="loginUsername" placeholder="Nhập tên người dùng" />
-
-                <label for="loginPassword">Mật khẩu</label>
-                <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" />
-
-                <button type="submitLog" class="modal-btn">Đăng Nhập</button>
+                <input type="text" id="loginUsername" placeholder="Tên người dùng">
+                <input type="password" id="loginPassword" placeholder="Mật khẩu">
+                <button type="submit" class="modalBtn">Đăng Nhập</button>
                 <p>Chưa có tài khoản? <a href="#registerModal">Đăng ký ngay</a></p>
             </form>
         </div>
     </div>
 
-    <!-- Modal Đăng Ký -->
     <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <a href="#" class="close">×</a>
-            <h2>Đăng Ký | Welly </h2>
+        <div class="modalContent">
+            <a href="#" class="closeBtn">×</a>
+            <h2>Đăng Ký | Welly</h2>
             <form>
-                <label for="registerUsername">Tên người dùng</label>
-                <input type="text" id="registerUsername" placeholder="Nhập tên người dùng" />
-
-                <label for="registerPassword">Mật khẩu</label>
-                <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" />
-
-                <label for="confirmPassword">Xác nhận mật khẩu</label>
-                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" />
-
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Nhập email của bạn" />
-
-                <button type="submitReg" class="modal-btn">Đăng Ký</button>
+                <input type="text" id="registerUsername" placeholder="Tên người dùng">
+                <input type="password" id="registerPassword" placeholder="Mật khẩu">
+                <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu">
+                <input type="email" id="email" placeholder="Email">
+                <button type="submit" class="modalBtn">Đăng Ký</button>
                 <p>Đã có tài khoản? <a href="#loginModal">Đăng nhập ngay</a></p>
             </form>
         </div>
     </div>
 
-    <!-- ================= PHẦN 3: BANNER CHÍNH ================= -->
     <section class="banner">
         <h1>WellyShop 🌊</h1>
         <p>Điện thoại, Laptop, Máy tính bàn, Linh kiện,...</p>
-        <br>
-        <!-- Video banner -->
-        <video id="videoPlayer" autoplay muted>
-    <source src="video/Xiaomi.mp4" type="video/mp4">
-</video>
+        <video id="videoPlayer" autoplay muted loop></video>
     </section>
 
-    <!-- ================= PHẦN 4: THỐNG KÊ SỐ LIỆU ================= -->
     <section class="stats">
-        <div class="stats-container">
-            <div class="stat-box" style="border-right: 1px solid rgb(53, 51, 51); ">
-                <h2 id="counter1">0</h2>
+        <div class="statsContainer">
+            <div class="statBox">
+                <h2 id="counterCustomers">0</h2>
                 <p>Khách Hàng</p>
-                <span>Số lượng khách tin <br> tưởng sử dụng</span>
+                <span>Số lượng khách tin tưởng sử dụng</span>
             </div>
-            <div class="stat-box">
-                <h2 id="counter2">0</h2>
+            <div class="statBox">
+                <h2 id="counterOrders">0</h2>
                 <p>Đơn Hàng</p>
-                <span>Số lượng đơn đã <br>hoàn thành</span>
+                <span>Số lượng đơn đã hoàn thành</span>
             </div>
-            <div class="stat-box" style="border-left: 1px solid rgb(53, 51, 51); ">
-                <h2 id="counter3">0</h2>
+            <div class="statBox">
+                <h2 id="counterOnline">0</h2>
                 <p>Online</p>
-                <span>Người dùng đang <br> hoạt động</span>
+                <span>Người dùng đang hoạt động</span>
             </div>
         </div>
     </section>
 
-    <!-- Đường kẻ ngang phân cách
-    <hr class="horizontal dark" /> -->
-
-    <!-- ================= PHẦN 5: KHU VỰC SẢN PHẨM ================= -->
-    <!-- Danh mục 1: SẢN PHẨM NỔI BẬT -->
-    <section class="product-section">
-        <h2 class="section-title">🌊 SẢN PHẨM NỔI BẬT 🌊</h2>
-        <div class="product-container">
-            <!-- Sản phẩm 1 -->
-            <div id="idk1" class="product-card">
-                <span class="discount-tag">-20%</span>
-                <div>
-                    <a href="chitietSamsung.html">
-                        <img src="images/Dien thoai/ss_s25-removebg-preview.png" alt="Samsung S25 Ultra" />
-                    </a>
-
-                    <div class="product-popup">
-                        <div class="icon-container">
-                            <!-- Icon trái tim -->
-                            <button class="icon-btn heart" onclick="toggleIcon(this)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-
-                            <!-- Icon like -->
-                            <button class="icon-btn like" onclick="toggleIcon(this)">
-                                <i class="fas fa-thumbs-up"></i>
-                            </button>
-
-                            <!-- Icon open -->
-                            <button class="icon-btn open" onclick="toggleIcon(this)">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-
-                            <!-- Icon giỏ hàng -->
-                            <button class="icon-btn cart" onclick="toggleIcon(this)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                        </div>
-                    </div>
-
+    <section class="productSection">
+        <h2 class="sectionTitle">🌊 SẢN PHẨM NỔI BẬT 🌊</h2>
+        <div class="productContainer">
+            <div class="productCard">
+                <span class="discountTag">-20%</span>
+                <div class="productPopup" id="productPopup1">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-                <div class="button-group">
-
-                    <h3>Samsung S25 Ultra</h3>
-                    <p class="price">29.900.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </a>
-
+                <img src="images/dien-thoai-samsung-galaxy-s25-ut.png" alt="Samsung S25 Ultra">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
                 </div>
-                <div class="fb-like" data-href="http://127.0.0.1:5500/index.html" data-width=""
-                    data-layout="button_count" data-action="like" data-size="small" data-share="false">
+                <h3>Samsung S25 Ultra</h3>
+                <p class="price">29.900.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
                 </div>
             </div>
-
-            <!-- Sản phẩm 2 -->
-            <div id="idk2" class="product-card">
-                <span class="discount-tag">-10%</span>
-                <a href="chitietIPhone.html">
-                    <img src="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png" alt="iPhone 16" />
-
-                </a>
-
-                <div class="product-popup">
-                    <div class="icon-container">
-                        <!-- Icon trái tim -->
-                        <button class="icon-btn heart" onclick="toggleIcon(this)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-
-                        <!-- Icon like -->
-                        <button class="icon-btn like" onclick="toggleIcon(this)">
-                            <i class="fas fa-thumbs-up"></i>
-                        </button>
-
-                        <!-- Icon open -->
-                        <button class="icon-btn open" onclick="toggleIcon(this)">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-
-                        <!-- Icon giỏ hàng -->
-                        <button class="icon-btn cart" onclick="toggleIcon(this)">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
+            <div class="productCard">
+                <span class="discountTag">-10%</span>
+                <div class="productPopup" id="productPopup2">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-
-
-                <div class="button-group">
-                    <h3>iPhone 16</h3>
-                    <p class="price">41.400.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart">
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </a>
+                <img src="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png" alt="iPhone 16">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
+                </div>
+                <h3>iPhone 16</h3>
+                <p class="price">41.400.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
                 </div>
             </div>
-
-            <!-- Sản phẩm 3 -->
-            <div id="idk3" class="product-card">
-                <span class="discount-tag">-15%</span>
-                <a href="chitietiVivo.html">
-                    <img src="images/Vivo x200.png" alt="" />
-                </a>
-
-                <div class="product-popup">
-                    <div class="icon-container">
-                        <!-- Icon trái tim -->
-                        <button class="icon-btn heart" onclick="toggleIcon(this)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-
-                        <!-- Icon like -->
-                        <button class="icon-btn like" onclick="toggleIcon(this)">
-                            <i class="fas fa-thumbs-up"></i>
-                        </button>
-
-                        <!-- Icon open -->
-                        <button class="icon-btn open" onclick="toggleIcon(this)">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-
-                        <!-- Icon giỏ hàng -->
-                        <button class="icon-btn cart" onclick="toggleIcon(this)">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
+            <div class="productCard">
+                <span class="discountTag">-15%</span>
+                <div class="productPopup" id="productPopup3">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-
-
-                <div class="button-group">
-                    <h3>Vivo X200 Pro</h3>
-                    <p class="price">23.800.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart"><i class="fa-solid fa-cart-plus"></i></a>
+                <img src="images/Vivo x200.png" alt="Vivo X200">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
+                </div>
+                <h3>Vivo X200 Pro</h3>
+                <p class="price">23.800.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
                 </div>
             </div>
-
-
-
-            <!-- Sản phẩm 4 -->
-            <div id="idk4" class="product-card">
-                <span class="discount-tag">-20%</span>
-                <a href="chitietxiaomi.html">
-                    <img src="images/Xiaomi 15u.png" alt="" />
-                </a>
-
-
-                <div class="product-popup">
-                    <div class="icon-container">
-                        <!-- Icon trái tim -->
-                        <button class="icon-btn heart" onclick="toggleIcon(this)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-
-                        <!-- Icon like -->
-                        <button class="icon-btn like" onclick="toggleIcon(this)">
-                            <i class="fas fa-thumbs-up"></i>
-                        </button>
-
-                        <!-- Icon open -->
-                        <but3LOton class="icon-btn open" onclick="toggleIcon(this)">
-                            <i class="fas fa-external-link-alt"></i>
-                        </but3LOton>
-
-                        <!-- Icon giỏ hàng -->
-                        <button class="icon-btn cart" onclick="toggleIcon(this)">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
+            <div class="productCard">
+                <span class="discountTag">-20%</span>
+                <div class="productPopup" id="productPopup4">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-
-
-                <div class="button-group">
-                    <h3>Xiaomi 15 Ultra</h3>
-                    <p class="price">24.000.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart"><i class="fa-solid fa-cart-plus"></i></a>
+                <img src="images/Xiaomi 15u.png" alt="Xiaomi 15 Ultra">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
                 </div>
-
+                <h3>Xiaomi 15 Ultra</h3>
+                <p class="price">24.000.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
+                </div>
             </div>
-
-            <!-- Sản phẩm 5 -->
-            <div id="idk5" class="product-card">
-                <span class="discount-tag">-20%</span>
-                <a href="chitietxiaomi.html">
-                    <img src="images/oppo find x8.jpg" alt="" />
-                </a>
-
-
-                <div class="product-popup">
-                    <div class="icon-container">
-                        <!-- Icon trái tim -->
-                        <button class="icon-btn heart" onclick="toggleIcon(this)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-
-                        <!-- Icon like -->
-                        <button class="icon-btn like" onclick="toggleIcon(this)">
-                            <i class="fas fa-thumbs-up"></i>
-                        </button>
-
-                        <!-- Icon open -->
-                        <button class="icon-btn open" onclick="toggleIcon(this)">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-
-                        <!-- Icon giỏ hàng -->
-                        <button class="icon-btn cart" onclick="toggleIcon(this)">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
+            <div class="productCard">
+                <span class="discountTag">-20%</span>
+                <div class="productPopup" id="productPopup5">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-
-
-                <div class="button-group">
-                    <h3>OPPO Find X8</h3>
-                    <p class="price">12.000.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart"><i class="fa-solid fa-cart-plus"></i></a>
+                <img src="images/oppo find x8.jpg" alt="OPPO Find X8">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
                 </div>
-
+                <h3>OPPO Find X8</h3>
+                <p class="price">12.000.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
+                </div>
             </div>
-
-            <!-- Sản phẩm 6 -->
-            <div id="idk6" class="product-card">
-                <span class="discount-tag">-20%</span>
-                <a href="chitietxiaomi.html">
-                    <img src="images/huawei-pura-80-ultra-vang.jpg" alt="" />
-                </a>
- 
-
-                <div class="product-popup">
-                    <div class="icon-container">
-                        <!-- Icon trái tim -->
-                        <button class="icon-btn heart" onclick="toggleIcon(this)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-
-                        <!-- Icon like -->
-                        <button class="icon-btn like" onclick="toggleIcon(this)">
-                            <i class="fas fa-thumbs-up"></i>
-                        </button>
-
-                        <!-- Icon open -->
-                        <button class="icon-btn open" onclick="toggleIcon(this)">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-
-                        <!-- Icon giỏ hàng -->
-                        <button class="icon-btn cart" onclick="toggleIcon(this)">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
+            <div class="productCard">
+                <span class="discountTag">-20%</span>
+                <div class="productPopup" id="productPopup6">
+                    <button class="iconBtn heart"><i class="fas fa-heart"></i></button>
+                    <button class="iconBtn like"><i class="fas fa-thumbs-up"></i></button>
+                    <button class="iconBtn open"><i class="fas fa-eye"></i></button>
+                    <button class="iconBtn cart"><i class="fas fa-shopping-cart"></i></button>
                 </div>
-
-
-                <div class="button-group">
-                    <h3>Huawei Pura 80 Ultra</h3>
-                    <p class="price">36.000.000 VND</p>
-                    <a href="GioHang.html" class="buy-now">Buy now →</a>
-                    <a href="GioHang.html" class="add-to-cart"><i class="fa-solid fa-cart-plus"></i></a>
+                <img src="images/huawei-pura-80-ultra-vang.jpg" alt="Huawei Pura 80 Ultra">
+                <div class="iconContainer">
+                    <div class="fb-like" data-href="https://example.com" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="https://example.com" data-layout="button"></div>
                 </div>
-
+                <h3>Huawei Pura 80 Ultra</h3>
+                <p class="price">36.000.000 VND</p>
+                <div class="buttonGroup">
+                    <a href="#" class="buyNow">Buy now →</a>
+                </div>
             </div>
-
-
-
-
         </div>
     </section>
 
-
-
-
-
-    <!-- CHÂN TRANG (FOOTER) -->
     <footer>
-        <div class="footer-container">
-            <!-- Cột 1: Thông tin shop -->
-            <div class="footer-column">
+        <div class="footerContainer">
+            <div class="footerColumn">
                 <h3>HocNguyen Shop</h3>
-                <p>Social</p>
-                <div>
-                    <a href="https://discord.gg/SgPGwsVD"><i class="fab fa-discord"></i></a>
-                    <a href="https://www.facebook.com/ngthaihhoc/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://leetcode.com/u/thaihocng/"><i class="fas fa-code"></i></a>
-                </div>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
             </div>
-
-            <!-- Cột 2: Thanh toán -->
-            <div class="footer-column">
+            <div class="footerColumn">
                 <h3>Wallet</h3>
                 <ul>
                     <li><a href="#">Ngân Hàng</a></li>
                     <li><a href="#">Ví điện tử</a></li>
                 </ul>
             </div>
-
-            <!-- Cột 3: Dịch vụ -->
-            <div class="footer-column">
+            <div class="footerColumn">
                 <h3>Services</h3>
                 <ul>
                     <li><a href="#">Đặt trước thiết bị</a></li>
@@ -445,9 +241,7 @@
                     <li><a href="#">Sửa chữa thiết bị</a></li>
                 </ul>
             </div>
-
-            <!-- Cột 4: Lịch sử -->
-            <div class="footer-column">
+            <div class="footerColumn">
                 <h3>History</h3>
                 <ul>
                     <li><a href="#">Lịch sử thanh toán</a></li>
@@ -455,25 +249,11 @@
                 </ul>
             </div>
         </div>
-
-        <!-- Bản quyền -->
-        <div class="footer-bottom">
-            <p>Copyright © 2025 Welly | Written by
-                <a href="https://www.facebook.com/ngthaihhoc/">Welly</a>.
-            </p>
+        <div class="footerBottom">
+            Copyright © 2025 Welly | Written by Welly.
         </div>
     </footer>
-    </div>
 
-    <!-- ================= PHẦN 8: SCRIPTS ================= -->
-    <!-- Facebook SDK -->
-    <!-- <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v22.0"></script> -->
-
-    <!-- Chat widget -->
-    <!-- <script src="https://uhchat.net/code.php?f=eabde9"></script> -->
     <script src="main.js"></script>
 </body>
-
 </html>

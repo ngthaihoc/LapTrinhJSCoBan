@@ -1,0 +1,217 @@
+/* === Phần chung === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0c162d;
+    color: white;
+    text-align: center;
+}
+
+/* === Nội dung giỏ hàng === */
+.cart-content {
+    background: linear-gradient(135deg, #1c2b44, #2a3b5e);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.cart-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #00c8ff;
+}
+
+.cart-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.cart-content th,
+.cart-content td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.cart-content th {
+    background: #4facfe;
+    border: rgb(75, 72, 72) 2px solid;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+}
+
+.cart-content td {
+    font-size: 14px;
+}
+
+.product-image {
+    width: 60px;
+    border-radius: 5px;
+}
+
+/* Shipping options */
+.shipping-options {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.shipping-option {
+    margin: 10px 0;
+}
+
+.shipping-options h3,
+.shipping-info h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+/* Shipping info form */
+.shipping-info {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Cart totals */
+.cart-totals {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.cart-total {
+    text-align: left;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Checkout button */
+.cart-checkout {
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg, #ff9800, #e68a00);
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}
+
+.footer-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    text-align: left;
+    color: #333;
+}
+
+.footer-column h3 {
+    color: #007bff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: #007bff;
+}
+
+.social-icons a i {
+    font-size: 25px;
+    color: #333;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    margin-right: 10px;
+}
+
+.social-icons a:hover i {
+    color: #007bff;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: gray;
+}
