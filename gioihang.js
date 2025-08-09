@@ -160,4 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
   updateShippingMethod();
+
+  window.addEventListener('unload', function() {
+    localStorage.clear();
+});
 });
