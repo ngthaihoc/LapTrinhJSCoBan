@@ -26,7 +26,7 @@
                     <li><a href="#"><i class="fas fa-code"></i> Phần mềm</a></li>
                 </ul>
             </li>
-            <li><a href="#cartSection">GIỎ HÀNG</a></li>
+            <li><a href="GioHang.html">GIỎ HÀNG</a></li>
             <li><a href="#aboutSection">VỀ CHÚNG TÔI</a></li>
             <li class="dropdown">
                 <a href="#">LIÊN HỆ TẠI ▼</a>
@@ -76,7 +76,7 @@
     <section class="banner">
         <h1>WellyShop 🌊</h1>
         <p>Điện thoại, Laptop, Máy tính bàn, Linh kiện,...</p>
-        <video id="videoPlayer" autoplay muted loop></video>
+        <video id="videoPlayer" autoplay muted ></video>
         <div class="video-controls">
             <button id="firstVideo">First</button>
             <button id="prevVideo">Prev</button>
@@ -84,6 +84,20 @@
             <button id="lastVideo">Last</button>
         </div>
     </section>
+
+<div id="musicModal" class="modal">
+    <div class="modalContent">
+        <h2> Nhạc nền 💕👌 </h2>
+        <p>Bạn có muốn bật nhạc nền khi sử dụng trang web của Học không?</p>
+        <div class="modalButtons">
+            <button id="acceptMusic" class="modalBtn">Có</button>
+            <button id="declineMusic" class="modalBtn">Không</button>
+        </div>
+    </div>
+</div>
+
+<audio id="backgroundMusic" src="video/Joakim Karud - Classic.mp3" loop>
+</audio>
 
     <section class="stats">
         <div class="statsContainer">
@@ -131,9 +145,9 @@
                     </div>
                 </div>
                 <h3>Samsung S25 Ultra</h3>
-                <p class="price">29.900.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">29900000</span> VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow" id="buy1" name="Samsung S25 Ultra" price="29.900.000 VND"
+                    <a href="#" class="buyNow" id="buy1" name="Samsung S25 Ultra" price="29900000"
                         img="images/dien-thoai-samsung-galaxy-s25-ut.png">
                         Buy now →
                     </a>
@@ -161,9 +175,9 @@
                 <img src="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png" alt="iPhone 16">
 
                 <h3>iPhone 16</h3>
-                <p class="price">41.400.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">41400000</span> VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow" id="buy2" name="iPhone 16" price="41.400.000 VND"
+                    <a href="#" class="buyNow" id="buy2" name="iPhone 16" price="41400000"
                         img="images/Dien thoai/Screenshot_2025-02-13_083603-removebg-preview.png">
                         Buy now →
                     </a>
@@ -190,9 +204,9 @@
                 <img src="images/Vivo x200.png" alt="Vivo X200">
 
                 <h3>Vivo X200 Pro</h3>
-                <p class="price">23.800.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">23800000</span> VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow" id="buy3" name="Vivo X200 Pro" price="23.800.000 VND"
+                    <a href="#" class="buyNow" id="buy3" name="Vivo X200 Pro" price="23800000"
                         img="images/Vivo x200.png">
                         Buy now →
                     </a>
@@ -211,7 +225,7 @@
                         <button class="iconBtn open" onclick="toggleIcon(this)">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button class="iconBtn cart" onclick="toggleIcon(this)">
+                        <button class="iconBtn cart"  onclick="toggleIcon(this)" >
                             <i class="fas fa-shopping-cart"></i>
                         </button>
                     </div>
@@ -219,13 +233,13 @@
                 <img src="images/Xiaomi 15u.png" alt="Xiaomi 15 Ultra">
 
                 <h3>Xiaomi 15 Ultra</h3>
-                <p class="price">24.000.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">24000000</span> VND</p>
                
 <div class="buttonGroup">
     <a href="#" class="buyNow" 
        id="buy4" 
        name="Xiaomi 15 Ultra" 
-       price="24.000.000 VND" 
+       price="24000000" 
        img="images/Xiaomi 15u.png">
        Buy now →
     </a>
@@ -253,9 +267,9 @@
                 <img src="images/oppo find x8.jpg" alt="OPPO Find X8">
 
                 <h3>OPPO Find X8</h3>
-                <p class="price">12.000.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">12000000</span> VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow" id="buy5" name="OPPO Find X8" price="12.00.000 VND"
+                    <a href="#" class="buyNow" id="buy5" name="OPPO Find X8" price="12000000"
                         img="images/oppo find x8.jpg">
                         Buy now →
                     </a>
@@ -282,9 +296,9 @@
                 <img src="images/huawei-pura-80-ultra-vang.jpg" alt="Huawei Pura 80 Ultra">
 
                 <h3>Huawei Pura 80 Ultra</h3>
-                <p class="price">36.000.000 VND</p>
+                <p style="color: red;font-family: Arial, Helvetica, sans-serif;"><span class="price">36000000</span> VND</p>
                 <div class="buttonGroup">
-                    <a href="#" class="buyNow" id="buy6" name="Huawei Pura 80 Ultra" price="36.00.000 VND"
+                    <a href="#" class="buyNow" id="buy6" name="Huawei Pura 80 Ultra" price="36000000"
                         img="images/huawei-pura-80-ultra-vang.jpg">
                         Buy now →
                     </a>

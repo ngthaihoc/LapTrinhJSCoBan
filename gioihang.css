@@ -215,3 +215,20 @@ footer {
     border-top: 1px solid #ddd;
     color: gray;
 }
+#getLocationBtn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 15px;
+}
+
+#getLocationBtn:hover {
+    background: #45a049;
+}
+
+#getLocationBtn:active {
+    transform: scale(0.98);
+}

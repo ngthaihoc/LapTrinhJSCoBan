@@ -132,9 +132,9 @@ document
       });
   });
 
-const TARGET_NUM_CUSTOMERS = 1023;
-const TARGET_NUM_ORDERS = 741;
-const TARGET_NUM_ONLINE = 84;
+const targetNumCus = 1023;
+const targetNumOrder = 741;
+const targetNumOnline = 84;
 
 const counterCustomers = document.getElementById("counterCustomers");
 const counterOrders = document.getElementById("counterOrders");
@@ -149,7 +149,7 @@ const SPEED = 0.00001;
 const countUpCustomers = setInterval(() => {
   currentCustomers++;
   counterCustomers.textContent = currentCustomers;
-  if (currentCustomers == TARGET_NUM_CUSTOMERS) {
+  if (currentCustomers == targetNumCus) {
     clearInterval(countUpCustomers);
   }
 }, SPEED / 100);
@@ -157,7 +157,7 @@ const countUpCustomers = setInterval(() => {
 const countUpOrders = setInterval(() => {
   currentOrders++;
   counterOrders.textContent = currentOrders;
-  if (currentOrders == TARGET_NUM_ORDERS) {
+  if (currentOrders == targetNumOrder) {
     clearInterval(countUpOrders);
   }
 }, SPEED / 100);
@@ -165,12 +165,14 @@ const countUpOrders = setInterval(() => {
 const countUpOnline = setInterval(() => {
   currentOnline++;
   counterOnline.textContent = currentOnline;
-  if (currentOnline == TARGET_NUM_ONLINE) {
+  if (currentOnline == targetNumOnline) {
     clearInterval(countUpOnline);
   }
 }, SPEED + 0.1);
 
 const videoPlayer = document.getElementById("videoPlayer");
+videoPlayer.play();
+
 
 const videoSources = [
   "video/all.mp4",
@@ -182,12 +184,8 @@ const videoSources = [
 ]
 
 var currentVideoIndex = 0;
-videoPlayer.muted = true;
-videoPlayer.play();
-videoPlayer.muted = false;
-videoPlayer.play();
-videoPlayer.muted = false;
-videoPlayer.play();
+
+
 
 function changeVideo(newIndex) {
   currentVideoIndex = newIndex;
@@ -272,3 +270,34 @@ document.querySelectorAll('.buyNow').forEach(button => {
 
     })
 })
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const musicModal = document.getElementById("musicModal");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    var temp = null;
+
+    setTimeout(() => {
+        musicModal.style.display = "flex";
+    }, 1000);
+
+
+    document.getElementById("acceptMusic").addEventListener("click", function() {
+        backgroundMusic.play()
+        musicModal.style.display = "none";
+        temp =  "accepted"
+    });
+
+
+    document.getElementById("declineMusic").addEventListener("click", function() {
+        musicModal.style.display = "none";
+        temp =  "declined"
+    });
+
+
+    if (temp === "accepted") {
+        backgroundMusic.play()
+    } else if (temp === "declined") {
+        musicModal.style.display = "none";
+    }
+});

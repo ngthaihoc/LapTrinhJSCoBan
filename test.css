@@ -849,3 +849,23 @@ footer {
 .btn.cart.active {
     color: #ffa600;
 }
+
+
+#musicModal {
+    display: none; 
+}
+
+.modalButtons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#acceptMusic {
+    background: #4CAF50;
+}
+
+#declineMusic {
+    background: #f44336;
+}

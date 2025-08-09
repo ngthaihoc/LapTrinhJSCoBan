@@ -58,6 +58,9 @@
             <div class="form-group" id="address-group">
                 <label for="address">Địa chỉ giao hàng:</label>
                 <input type="text" id="address" class="form-input" placeholder="Nhập địa chỉ cụ thể" required />
+                 <button type="button" id="getLocation" class="formInput" style="width: auto; padding: 0 15px;">
+            <i class="fas fa-map-marker-alt"></i> Lấy vị trí
+        </button>
             </div>
 
             <div class="form-group">
@@ -68,15 +71,15 @@
 
         <div class="cart-totals">
             <div class="cart-total" id="home-delivery-total">
-                <p><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> <span class="subtotal">108.400.000</span> VND</p>
-                <p><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b> <span class="shipping-fee">20.000</span> VND</p>
-                <p><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> <span class="grand-total">108.420.000</span> VND</p>
+                <p><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> <span class="subtotal">0</span> VND</p>
+                <p><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b> <span class="shipping-feeHome" id="shipping-feeHome">20000</span> VND</p>
+                <p><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> <span class="grand-total">0</span> VND</p>
             </div>
 
             <div class="cart-total" id="store-pickup-total" style="display: none">
-                <p><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> <span class="subtotal">108.400.000</span> VND</p>
-                <p><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b> <span class="shipping-fee">0</span> VND</p>
-                <p><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> <span class="grand-total">108.400.000</span> VND</p>
+                <p><b><i class="fa-solid fa-box"></i> Tổng sản phẩm:</b> <span class="subtotalStore" id="subtotal">0</span> VND</p>
+                <p><b><i class="fa-solid fa-shipping-fast"></i> Phí giao hàng:</b> <span class="shipping-feeStore" id="shipping-feeStore">0</span> VND</p>
+                <p><b><i class="fa-solid fa-wallet"></i> Tổng cộng:</b> <span class="grand-totals" id="grandtotalS">0</span> VND</p>
             </div>
         </div>
 
