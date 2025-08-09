@@ -1,3 +1,9 @@
+// ==================== LOCAL STORAGE CLEANUP ====================
+window.addEventListener('load', function() {
+    localStorage.clear();
+});
+
+// ==================== ICON TOGGLE FUNCTIONALITY ====================
 function toggleIcon(btn) {
     btn.classList.toggle("active");
 
@@ -16,7 +22,6 @@ function toggleIcon(btn) {
     else if (btn.classList.contains("open")) {
         alert("Bạn đã " + (btn.classList.contains("active") ? "tương tác:3" : "bỏ tương tác :<"));
     }
-  
 
     const icon = btn.querySelector("i");
     if (btn.classList.contains("heart")) {
@@ -26,10 +31,9 @@ function toggleIcon(btn) {
             icon.classList.replace("fa-heart-crack", "fa-heart");
         }
     }
-    
 }
 
-
+// ==================== PRODUCT CARD HOVER EFFECTS ====================
 const productCardss = document.querySelectorAll(".productCard");
 
 productCardss.forEach((card, index) => {
@@ -47,6 +51,7 @@ productCardss.forEach((card, index) => {
     });
 });
 
+// ==================== USER AUTHENTICATION ====================
 let users = [];
 document
   .querySelector("#registerModal form")
@@ -132,6 +137,7 @@ document
       });
   });
 
+// ==================== COUNTER ANIMATION ====================
 const targetNumCus = 1023;
 const targetNumOrder = 741;
 const targetNumOnline = 84;
@@ -170,9 +176,9 @@ const countUpOnline = setInterval(() => {
   }
 }, SPEED + 0.1);
 
+// ==================== VIDEO PLAYER ====================
 const videoPlayer = document.getElementById("videoPlayer");
 videoPlayer.play();
-
 
 const videoSources = [
   "video/all.mp4",
@@ -184,8 +190,6 @@ const videoSources = [
 ]
 
 var currentVideoIndex = 0;
-
-
 
 function changeVideo(newIndex) {
   currentVideoIndex = newIndex;
@@ -218,6 +222,7 @@ document
   .getElementById("lastVideo")
   .addEventListener("click", () => changeVideo(videoSources.length - 1));
 
+// ==================== PRODUCT DATA COLLECTION ====================
 const productCards = document.querySelectorAll(".productCard");
 
 var productItems = [];
@@ -234,6 +239,7 @@ productCards.forEach((card, index) => {
 });
 console.log(productItems);
 
+// ==================== MODAL CONTROLS ====================
 const login = document.getElementById("loginA");
 const register = document.getElementById("registerA");
 
@@ -244,7 +250,7 @@ register.addEventListener("click", () => {
   document.getElementById("registerModal").style.display = "none";
 });
 
-
+// ==================== BUY NOW FUNCTIONALITY ====================
 document.querySelectorAll('.buyNow').forEach(button => {
     button.addEventListener('click', function(element) {
         element.preventDefault();
@@ -253,7 +259,6 @@ document.querySelectorAll('.buyNow').forEach(button => {
         const productPrice = this.getAttribute('price');
         const productImg = this.getAttribute('img');
         
-
         const prodcut = {
             name : productName,
             price : productPrice,
@@ -262,13 +267,11 @@ document.querySelectorAll('.buyNow').forEach(button => {
         }
 
         localStorage.setItem('prodcutIn4', JSON.stringify(prodcut))
-
         window.location.href = 'GioHang.html'
-
     })
 })
 
-
+// ==================== MUSIC MODAL ====================
 document.addEventListener("DOMContentLoaded", function() {
     const musicModal = document.getElementById("musicModal");
     const backgroundMusic = document.getElementById("backgroundMusic");
@@ -278,19 +281,16 @@ document.addEventListener("DOMContentLoaded", function() {
         musicModal.style.display = "flex";
     }, 1000);
 
-
     document.getElementById("acceptMusic").addEventListener("click", function() {
         backgroundMusic.play()
         musicModal.style.display = "none";
         temp =  "accepted"
     });
 
-
     document.getElementById("declineMusic").addEventListener("click", function() {
         musicModal.style.display = "none";
         temp =  "declined"
     });
-
 
     if (temp === "accepted") {
         backgroundMusic.play()
@@ -299,6 +299,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     var loginCheck = document.getElementById("resLogin")
-
-
 });

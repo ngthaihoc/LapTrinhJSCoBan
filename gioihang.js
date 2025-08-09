@@ -1,3 +1,4 @@
+// ==================== CART FUNCTIONALITY ====================
 document.addEventListener("DOMContentLoaded", function () {
   const selectProdcut = localStorage.getItem("prodcutIn4");
 
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <td class="product-total">${toalPrice} VND</td>`;
   }
 
+  // ==================== SHIPPING METHOD ====================
   const checkoutBtn = document.getElementById("checkout-btn");
   const shippingForm = document.getElementById("shipping-info-form");
   const addressGroup = document.getElementById("address-group");
@@ -53,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
     var toal = 0 ;
     
- 
-    
     if (homeDeliveryRadio.checked) {
       addressGroup.style.display = "block";
       homeDeliveryTotal.style.display = "block";
@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
     toalSum.innerText = toalPrice;
     shipPrice.innerText = ship
     priceProduct.innerText = proPrice
-
   }
 
+  // ==================== FORM VALIDATION ====================
   function validate(event) {
     event.preventDefault();
 
@@ -132,11 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Cảm ơn bạn đã đặt hàng.");
     window.location.href = "Checkout.html";
     shippingForm.reset();
-    
   }
 
-
-
+  // ==================== LOCATION SERVICES ====================
   const getLocation = document.getElementById("getLocation")
   const address =  document.getElementById("address")
   var x = null
@@ -144,37 +142,36 @@ document.addEventListener("DOMContentLoaded", function () {
   getLocation.addEventListener('click' ,getCurLocation)
 
   function getCurLocation() {
-
     getLocation.disabled = true
-
     navigator.geolocation.getCurrentPosition(showPosition,showError)
-
     address.value = x
-    
   }
+  
   function showPosition(position) {
-             x = "Vĩ độ: " + position.coords.latitude + "Kinh độ: " + position.coords.longitude;
-             getLocation.disabled = false
-        }
-        function showError(error) {
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("User denied the request for Geolocation.")
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable.")
-                    break;
-                case error.TIMEOUT:
-                      alert("The request to get user location timed out.")
-                    break;
-                case error.UNKNOWN_ERROR:
-                     alert("An unknown error occurred.")
-                    break;
-            }
-        }
+    x = "Vĩ độ: " + position.coords.latitude + "Kinh độ: " + position.coords.longitude;
+    getLocation.disabled = false
+  }
+  
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.")
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.")
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.")
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.")
+        break;
+    }
+  }
+
   updateShippingMethod();
 
   window.addEventListener('unload', function() {
     localStorage.clear();
-});
+  });
 });
