@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoc Nguyen - Thanh Toán</title>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="checkOut.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* === Nội dung trang thanh toán === */
+
         .checkout-content {
             background: linear-gradient(135deg, #1c2b44, #2a3b5e);
             padding: 25px;
@@ -25,7 +25,7 @@
             color: #00c8ff;
         }
 
-        /* Thông tin đơn hàng */
+
         .order-summary {
             text-align: left;
             padding: 15px;
@@ -45,7 +45,6 @@
             font-size: 16px;
         }
 
-        /* Phương thức thanh toán */
         .payment-methods {
             text-align: left;
             padding: 15px;
@@ -76,7 +75,7 @@
             color: #00c8ff;
         }
 
-        /* Nút xác nhận thanh toán */
+
         .confirm-payment {
             display: block;
             background: linear-gradient(90deg, #ff9800, #e68a00);
@@ -98,70 +97,26 @@
         .confirm-payment i {
             margin-right: 5px;
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .checkout-content {
-                width: 90%;
-                padding: 15px;
-            }
-
-            .order-summary, .payment-methods {
-                font-size: 14px;
-            }
-
-            .confirm-payment {
-                font-size: 16px;
-                padding: 10px;
-            }
-        }
     </style>
+
+    <script src="checkOut.js">  
+
+    </script>
 </head>
 <body>
-    <!-- Navbar (Giữ nguyên từ GioHang.html) -->
-    <nav class="navbar">
-        <a class="logo-container" href="index.html" data-tooltip="Owned by Nguyen Thai Hoc">
-            <img src="images/logo new.png" alt="Logo">
-        </a>
-        <ul class="nav-links">
-            <li class="dropdown">
-                <a href="#">Sản phẩm ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa-solid fa-laptop"></i> Máy tính</a></li>
-                    <li><a href="#"><i class="fa-solid fa-mobile"></i> Điện thoại Android</a></li>
-                    <li><a href="#"><i class="fa-brands fa-apple"></i> Điện thoại IOS</a></li>
-                    <li><a href="#"><i class="fa-solid fa-microchip"></i> Linh kiện</a></li>
-                    <li><a href="#"><i class="fa-solid fa-code"></i> Phần mềm</a></li>
-                </ul>
-            </li>
-            <li><a href="GioHang.html" id="cartBtn">GIỎ HÀNG <i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="#">VỀ CHÚNG TÔI</a></li>
-            <li>LIÊN HỆ VỚI CHÚNG TÔI TẠI => <a href="https://discord.gg/SgPGwsVD"><i class="fa-brands fa-discord"></i> Discord</a></li>
-        </ul>
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button type="submit">🔍</button>
-        </div>
-        <div class="nav-buttons">
-            <a href="#loginModal" class="btn login">Đăng Nhập</a>
-            <a href="#registerModal" class="btn register">Đăng Ký</a>
-        </div>
-    </nav>
-
-    <!-- Nội dung trang thanh toán -->
+ 
     <div class="checkout-content">
         <h2><i class="fa-solid fa-credit-card"></i> Thanh Toán Đơn Hàng</h2>
 
-        <!-- Thông tin đơn hàng -->
-        <div class="order-summary">
+ 
+        <!-- <div class="order-summary">
             <h3><i class="fa-solid fa-box"></i> Tóm tắt đơn hàng</h3>
-            <p>Samsung S25 Ultra: 25.600.000 VND (1 sản phẩm)</p>
-            <p>iPhone 16: 82.800.000 VND (2 sản phẩm)</p>
-            <p><b>Phí giao hàng:</b> 20.000 VND</p>
-            <p><b>Tổng cộng:</b> 108.420.000 VND</p>
-        </div>
+            <p><span id="nameProduct">Name</span> : <span id="priceProduct">0</span> VND</p>
+            <p><b>Phí giao hàng:</b><span id="shipPrice">0</span> VND</p>
+            <p><b>Tổng cộng:</b>    <span id="toalSum">0</span>VND</p>
+        </div> -->
 
-        <!-- Phương thức thanh toán -->
+    
         <div class="payment-methods">
             <h3><i class="fa-solid fa-wallet"></i> Chọn phương thức thanh toán</h3>
             <input type="radio" name="payment" id="cod" value="cod" checked>
@@ -172,12 +127,12 @@
             <label for="momo"><i class="fa-solid fa-mobile-alt"></i> Ví MoMo</label>
         </div>
 
-        <!-- Nút xác nhận thanh toán -->
-       <!-- Nút xác nhận thanh toán -->
+  
+
 <a href="PaymentSuccess.html" class="confirm-payment"><i class="fa-solid fa-check"></i> Xác Nhận Thanh Toán</a>
     </div>
 
-    <!-- Footer (Giữ nguyên từ GioHang.html) -->
+
     <footer>
         <div class="footer-container">
             <div class="footer-column">

@@ -46,6 +46,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const subTotalS = document.querySelector(".subtotalStore");
     const grandTotalS = document.querySelector(".grand-totals");
 
+    const priceProduct = document.getElementById("priceProduct")
+    const shipPrice = document.getElementById("shipPrice")
+    const toalSum = document.getElementById("toalSum")
+    var ship = 0
+      
+    var toal = 0 ;
     
  
     
@@ -53,18 +59,24 @@ document.addEventListener("DOMContentLoaded", function () {
       addressGroup.style.display = "block";
       homeDeliveryTotal.style.display = "block";
       storePickupTotal.style.display = "none";
-       var toal = toalPrice + Number(shipHome);
+      toal = toalPrice + Number(shipHome);
       subTotal.textContent = proPrice ;
       grandTotal.textContent = toal;
+      ship = 20000
     } 
     else if (storePickupRadio.checked) {
       addressGroup.style.display = "none";
       homeDeliveryTotal.style.display = "none";
       storePickupTotal.style.display = "block";
       subTotalS.textContent = proPrice;
-      console.log(subTotal.textContent);
       grandTotalS.textContent = toalPrice;
+      ship = 0
     }
+ 
+    toalSum.innerText = toalPrice;
+    shipPrice.innerText = ship
+    priceProduct.innerText = proPrice
+
   }
 
   function validate(event) {
@@ -118,8 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     alert("Cảm ơn bạn đã đặt hàng.");
-    shippingForm.reset();
     window.location.href = "Checkout.html";
+    shippingForm.reset();
+    
   }
 
 

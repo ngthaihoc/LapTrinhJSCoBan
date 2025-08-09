@@ -252,9 +252,6 @@ document.querySelectorAll('.buyNow').forEach(button => {
         const productName = this.getAttribute('name');
         const productPrice = this.getAttribute('price');
         const productImg = this.getAttribute('img');
-        console.log(productName)
-         console.log(productPrice)
-          console.log(productImg)
         
 
         const prodcut = {
@@ -300,4 +297,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (temp === "declined") {
         musicModal.style.display = "none";
     }
+
+    var loginCheck = document.getElementById("resLogin")
+
+
 });
