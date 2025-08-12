@@ -232,3 +232,60 @@ footer {
 #getLocationBtn:active {
     transform: scale(0.98);
 }
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ff1a1a;
+}
+
+.add-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 5px;
+}
+
+.add-btn:hover {
+    background: #45a049;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.cart-checkout:disabled {
+    background: linear-gradient(90deg, #cccccc, #999999);
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.empty-cart {
+    color: #ffcc00;
+    font-style: italic;
+    padding: 20px;
+}
+
+.cart-checkout:disabled a {
+    pointer-events: none;
+    color: inherit;
+}
